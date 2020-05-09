@@ -1,0 +1,43 @@
+version: '2'
+services:
+  zookeeper:
+    image: debezium/zookeeper:1.1
+    ports:
+     - 2181:2181
+     - 2888:2888
+     - 3888:3888
+  kafka:
+    image: debezium/kafka:1.1
+    ports:
+     - 9092:9092
+    links:
+     - zookeeper
+    environment:
+     - ZOOKEEPER_CONNECT=zookeeper:2181
+  mysql:
+    image: debezium/example-mysql:1.1
+    ports:
+     - 3305:3305
+    environment:
+     - MYSQL_ROOT_PASSWORD=debezium
+     - MYSQL_USER=mysqluser
+     - MYSQL_PASSWORD=mysqlpw 
+     - MYSQL_DB=inventory
+  connect:
+    image: debezium/connect:1.1
+    # build:
+    #   context: debezium
+    ports:
+     - 8083:8083    # build:
+    #   context: debezium
+     - 5005:5005
+    links:
+     - kafka
+     - zookeeper
+     - mysql
+    environment:
+     - BOOTSTRAP_SERVERS=kafka:9092
+     - GROUP_ID=1
+     - CONFIG_STORAGE_TOPIC=my_connect_configs
+     - OFFSET_STORAGE_TOPIC=my_connect_offsets
+     - STATUS_STORAGE_TOPIC=my_source_connect_statuses
