@@ -19,7 +19,7 @@
 - Now, make changes in the MySQL db to pass some events to the connector.
     - To get to the mysql command client, on the local MySQL container:
         - Exec onto the container. Run: `sudo docker exec -it kafka-cdc_mysql_1 bash`
-        - Run commandline mysql for the `inventory` databse. Run: `mysql -u mysqluser -p inventory`
+        - Run commandline mysql for the `inventory` database. Run: `mysql -u mysqluser -p inventory`
             - It will prompt for password. Enter: `mysqlpw`
         - To show tables: `show tables;`
     - Now, make some chages. Example insert: `INSERT INTO customers VALUES (default, "Sarah", "Thompson", "kitt2@acme.com");`
@@ -35,6 +35,8 @@
 ### Used for Above Implementation
 
 https://debezium.io/documentation/reference/1.1/tutorial.html
+
+
 https://github.com/debezium/debezium-examples/blob/master/unwrap-smt/docker-compose.yaml
 
 ### Other Resources:
