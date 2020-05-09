@@ -3,8 +3,8 @@
 ## Getting Started
 
 ### Tools
-- Install Docker [here]([https://docs.docker.com/engine/install/#server)
-- Install Docker Compost [here](https://docs.docker.com/compose/install/)
+- Install Docker [here](https://docs.docker.com/engine/install/)
+- Install Docker Compose [here](https://docs.docker.com/compose/install/)
 
 ### Starting the Project
 
