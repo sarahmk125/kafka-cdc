@@ -43,6 +43,8 @@ https://github.com/debezium/debezium-examples/blob/master/unwrap-smt/docker-comp
 
 https://info.crunchydata.com/blog/postgresql-change-data-capture-with-debezium
 
+https://github.com/debezium/debezium-examples/tree/master/end-to-end-demo
+
 
 ### Other Resources:
 
