@@ -23,18 +23,34 @@ services:
      - MYSQL_USER=mysqluser
      - MYSQL_PASSWORD=mysqlpw 
      - MYSQL_DB=inventory
+  pgsql:
+    image: crunchydata/crunchy-postgres:centos7-12.2-4.3.0
+    environment:
+     - PGHOST=/tmp
+     - PG_MODE=primary
+     - PG_PRIMARY_PORT=5432
+     - PG_PRIMARY_USER=postgres
+     - PG_DATABASE=testdb
+     - PG_PRIMARY_PASSWORD=debezium
+     - PG_PASSWORD=not
+     - PG_ROOT_PASSWORD=matter
+     - PG_USER=debezium
+    volumes:
+     - ./pg-primary-vol:/pgdata
+    ports:
+    - "5432"
   connect:
     image: debezium/connect:1.1
-    # build:
-    #   context: debezium
+    build:
+      context: debezium-jdbc
     ports:
-     - 8083:8083    # build:
-    #   context: debezium
+     - 8083:8083
      - 5005:5005
     links:
      - kafka
      - zookeeper
      - mysql
+     - pgsql
     environment:
      - BOOTSTRAP_SERVERS=kafka:9092
      - GROUP_ID=1
