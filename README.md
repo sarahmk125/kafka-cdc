@@ -28,6 +28,9 @@
         - To get the pgsql client:
             - Exec onto the container. Run: `docker exec -it kafka-cdc_pgsql_1 bash`
             - Get to the psql command line client: `psql testdb`
+            - To view relations: `\dt`
+            - To view the customers table, linked to the connector: `select * from customers;`.
+            - Now, see any changes you make in mysql!
 
 ### Stopping the Project
 
