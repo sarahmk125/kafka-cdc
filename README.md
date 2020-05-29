@@ -63,3 +63,7 @@ to remove docker containers:
 ```
 docker-compose -f docker-compose-debezium-local.yml rm
 ```
+To restart containers:
+```
+docker-compose -f docker-compose-debezium-local.yml up -d
+```
