@@ -21,7 +21,7 @@
             - Run commandline mysql for the `inventory` database. Run: `mysql -u mysqluser -p inventory`
                 - It will prompt for password. Enter: `mysqlpw`
             - To show tables: `show tables;`
-        - Now, make some chages. Example insert: `INSERT INTO customers VALUES (default, "Sarah", "Thompson", "kitt2@acme.com");`
+        - Now, make some chages. Example insert: `INSERT INTO customers VALUES (default, "Sarah", "Thompson", "kitt2@acme.com")`
     - View the above changes in the connector by logging the container. Run: `docker logs --tail 1000 -f kafka-cdc_connect_1`
         - Note: the logs above will show scanning of all tables in the inventory connector.
     - Checkout the data on the PostgreSQL db locally to validate the changes
