@@ -27,11 +27,15 @@
     - Checkout the data on the PostgreSQL db locally to validate the changes
         - To get the pgsql client:
             - Exec onto the container. Run: `docker exec -it kafka-cdc_pgsql_1 bash`
-            - RUT RO, THIS FAILS!!!
+            - Get to the psql command line client: `psql testdb`
 
 ### Stopping the Project
 
 - Stop all docker containers. Run: `bash down.sh`
+- Remove containers and rebuild: 
+    - `docker-compose -f docker-compose-debezium-local.yml stop`
+    - `docker-compose -f docker-compose-debezium-local.yml rm`
+    - `docker-compose -f docker-compose-debezium-local.yml up -d`
 
 ## Resources
 
