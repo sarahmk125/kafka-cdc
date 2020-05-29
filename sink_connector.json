@@ -7,8 +7,6 @@
       "database.port": "5432",
       "database.user": "postgres",
       "database.password": "debezium",
-      // "database.server.id": "184054",
-      // "database.server.name": "dbserver1",
       "database.whitelist": "testdb",
       "database.history.kafka.bootstrap.servers": "kafka:9092",
       "database.history.kafka.topic": "dbchanges.testdb"
